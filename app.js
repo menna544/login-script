@@ -20,7 +20,7 @@ function validateEmail() {
 function verifyPassword() {
     var passfield = document.getElementById("password-field").value;
     passwordlabel.style.bottom = "45px";
-    if (passfield.length < 6) {
+    if (passfield.length < 6 && passfield.includes(" ")){
         document.getElementById("password-error").innerHTML = "Password is not valid";
         return false;
     }
@@ -30,8 +30,7 @@ function verifyPassword() {
 function validateAll() {
     if (validateEmail() == true && verifyPassword() == true) {
        localStorage.setItem("userEmail",emailfield.value);
-       window.open("login.html")
-    }else
-    window.replace("index.html")
+       window.location.href="login.html"
+}
 }
 
